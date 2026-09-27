@@ -1,0 +1,297 @@
+/* SonicStream Studio - Professional Human-Crafted Audio Architecture */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-app: #09090b;
+  --bg-sidebar: #0c0c0e;
+  --bg-header: rgba(12, 12, 14, 0.9);
+  --bg-card: #141417;
+  --bg-card-hover: #1c1c20;
+  --bg-surface: #1e1e24;
+  
+  --accent-primary: #10b981;
+  --accent-primary-hover: #059669;
+  --accent-primary-glow: rgba(16, 185, 129, 0.25);
+  
+  --accent-secondary: #6366f1;
+  --accent-magenta: #ec4899;
+  
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.16);
+  --border-active: rgba(16, 185, 129, 0.4);
+  
+  --radius-xl: 16px;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 6px;
+  
+  --font-main: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Base Card & Panels */
+.studio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+/* Modern Buttons */
+.btn-emerald {
+  background: var(--accent-primary);
+  color: #000000;
+  border: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px var(--accent-primary-glow);
+  white-space: nowrap;
+}
+
+.btn-emerald:hover {
+  background: var(--accent-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 9px 18px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-hover);
+  color: #ffffff;
+}
+
+/* Track Row Layout & Hover */
+.track-row-grid {
+  display: grid;
+  grid-template-columns: 36px 1fr 130px 100px 210px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  transition: background-color 0.18s ease;
+}
+
+.track-row-grid:hover {
+  background-color: var(--bg-surface) !important;
+}
+
+/* Spotlight Grid Layout */
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 250px;
+}
+
+/* Equalizer Animation */
+@keyframes studioEq {
+  0% { height: 4px; }
+  50% { height: 18px; }
+  100% { height: 4px; }
+}
+
+.studio-eq-bar {
+  width: 3px;
+  background: var(--accent-primary);
+  border-radius: 2px;
+  animation: studioEq 0.8s infinite ease-in-out;
+}
+.studio-eq-bar:nth-child(1) { animation-delay: 0.1s; }
+.studio-eq-bar:nth-child(2) { animation-delay: 0.3s; }
+.studio-eq-bar:nth-child(3) { animation-delay: 0.2s; }
+
+/* Custom Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #27272a;
+  border-radius: 4px;
+  height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (Mobile, Tablet, Desktop)
+   ========================================================================== */
+
+/* Tablet & Mobile Screens (<= 960px) */
+@media (max-width: 960px) {
+  .app-container {
+    flex-direction: column !important;
+  }
+  
+  .studio-sidebar {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color);
+    padding: 14px 18px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  .sidebar-nav {
+    flex-direction: row !important;
+    gap: 4px !important;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .sidebar-storage-card {
+    display: none !important;
+  }
+
+  .main-workspace {
+    padding-bottom: 110px !important;
+  }
+
+  .top-header {
+    padding: 12px 18px !important;
+    flex-direction: column !alignment;
+    gap: 12px !important;
+  }
+
+  .header-search-form {
+    max-width: 100% !important;
+  }
+
+  .spotlight-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .spotlight-img {
+    height: 200px !important;
+  }
+
+  .track-row-grid {
+    grid-template-columns: 32px 1fr 170px !important;
+    gap: 8px;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .player-bar-container {
+    padding: 0 16px !important;
+    height: 75px !important;
+  }
+
+  .player-center-controls {
+    max-width: 220px !important;
+    margin: 0 10px !important;
+  }
+
+  .player-time-display {
+    display: none !important;
+  }
+}
+
+/* Small Mobile Screens (<= 580px) */
+@media (max-width: 580px) {
+  .track-row-grid {
+    grid-template-columns: 1fr 120px !important;
+    padding: 10px 8px !important;
+  }
+
+  .track-index-col {
+    display: none !important;
+  }
+
+  .main-content-padding {
+    padding: 16px 14px !important;
+  }
+
+  .spotlight-title {
+    font-size: 1.6rem !important;
+  }
+
+  .player-bar-container {
+    padding: 0 10px !important;
+  }
+
+  .player-volume-col {
+    display: none !important;
+  }
+}
